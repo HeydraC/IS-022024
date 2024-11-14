@@ -1,0 +1,32 @@
+@startuml practica
+!theme cyborg-outline
+class persona{
+    # String nombre
+    # String direccion
+    # String telefono
+}
+class entrenador{
+    # int nivelDeAcreditacion
+    # int aniosDeExperiencia
+}
+class jugador{
+    # int numero
+    # String posicion
+    # bool capitan
+}
+class equipo{
+    # String nombre
+    # jugador registro[]
+}
+class juego{
+    # String localidad
+    # int puntuacion
+}
+
+persona <|-- entrenador
+persona <|-- jugador
+equipo o-- "6..20" jugador
+equipo "1..*" o-- "0..1" entrenador
+equipo "2" --> juego : participa en
+
+@enduml
